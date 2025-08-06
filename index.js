@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.post('/proxy', async (req, res) => {
   try {
-    const response = await axios.post('https://tu-api-real.com', req.body);
+    const response = await axios.post('http://jonathanvs-001-site1.mtempurl.com', req.body);
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Error en el proxy', details: error.message });
