@@ -3,7 +3,12 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS ajustado para Firebase Hosting
+app.use(cors({
+  origin: 'https://piloto-mantenimiento-vehiculo.web.app',
+}));
+
 app.use(express.json());
 
 app.post('/proxy', async (req, res) => {
