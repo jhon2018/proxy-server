@@ -20,7 +20,9 @@ app.options('/proxy', (req, res) => {
 // ✅ Proxy principal
 app.post('/proxy', async (req, res) => {
   try {
-    let { endpoint, data, method, params, headers } = req.body;
+    let { endpoint, data, body, method, params, headers } = req.body;
+    data = data || body || null;
+
 
     // Valores por defecto
     method = (method || 'POST').toUpperCase();
@@ -71,3 +73,4 @@ app.post('/proxy', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Proxy corriendo en puerto ${PORT}`));
+
